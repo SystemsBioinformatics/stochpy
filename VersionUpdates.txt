@@ -1,0 +1,297 @@
+Updates 2.3:
+------------
+- improved sampling method to calculate extant cell species AND volumes (new)
+- we allow plotting of mother and baby cell species AND volume at birth 
+- we use a different function for plotting distributions (gives the user more flexibility)
+- Silence Mode
+- support of events in cell division simulations
+- bug resolved for an event that changes the value of parameters
+- the cell division module works now also with the tau leap method
+- we added DNA replication to the cell division module
+- fixed a bug in the interface to StochKit for models with customized reactions
+- with the next reaction method (and the delayed one), it was not possible to change parameters. This is now possible
+
+
+Updates 2.2.2:
+--------------
+- the use of colors in the plotting functions is now more intuitively
+- we solved a bug in PlotAverageSpeciesDistributions: we again allow for non-integer values of *nstd*
+
+Updates 2.2.1:
+--------------
+- We solved an issue with the species order if you use the interface to StochKit
+- propensities distributions are calculated correctly again
+
+Updates 2.2.0:
+-------------
+- (fast) Single molecule method. See documentation for more details
+- improved methods to determine the order of the reaction
+- extra arguments for DoStochSim which provide more options for the tau-leaping method
+- high-level function for cell age distribution 
+- improved calculation of cell age
+- 2D trapezoidal rule for calculating the extant cell population
+- different sampling method
+- more advanced warning messages
+- bug removed in Endtime() of the cell division module
+- new plotting function for the extant cell population in the cell division module
+- all functionalities work now if you decide to track only a subset of species through time (before e.g. GetSpeciesAutocorrelations() was not working)
+- *rate_selection* added to stochastic simulation algorithms
+- removed a bug in DelayedDirect with respect to handling of time events
+- speed improvement for GetRegularGrid() and we now use n_samples in stead of npoints as arguments
+
+Updates 2.1.1:
+--------------
+- We corrected a bug in the tau-leaping method which was introduced in 2.1
+- We added 'critical_reactions' as argument to the DoStochSim method which allows users to predefine reactions that can only fire once during a tau leaping time step
+
+Updates 2.1:
+------------
+- Python 3 support
+- *DumpTrajectoryData* improved
+
+Updates 2.0.1
+-------------
+ - SetVolumeDependencies settings still work after changing initial species of parameters in the ChangeInitialSpeciesAmount or ChangeParameters functions. 
+ - Solved potential bugs in SetVolumeDependencies. We for instance now check if the first argument is a boolean (as it should be)
+
+
+Updates 2.0.0
+-------------
+- delayed stochastic algorithms
+- single molecule stochastic algorithms 
+- volume dependency
+- completely new cell division module
+- improved event handling
+- improved matplotlib handling
+- PlotPropensitiesAutocorrelations() works again correctly
+- Works now properly with StochKit 2.0.10 and higher
+
+Updates 1.2.0
+-------------
+- track output of specific species
+- faster implementation of the Next Reaction Method
+- we added a argument which allows users to save only the last data point
+- improved functionality of ChangeInitialSpeciesAmount and ChangeParameter; made modifications are stored after choosing e.g. a different simulation algorithm
+- More efficient use of memory
+
+Updates 1.1.5
+-------------
+- Improved statusbar functionalities
+- Improved functionalities for the Nucleosome Tool plug-in
+- Improved DeleteTempfiles high-level function
+
+Updates 1.1.4
+-------------
+- Removed potential bug in high-level execute function
+- Incorporated functionalities for Nucleosome simulator plug-in
+
+Updates 1.1.3
+-------------
+- Simulating indicator for single trajectory simulations
+- Progress Bar for multiple trajectory simulations
+- Improved model handling
+- trajectories, mode, method, end are reset if the user not specifically uses the high-level functionalities that are designed for this. An example: 
+>>> smod.DoStochSim(trajectories=1000,end=100,mode='time') generates 1000 trajectories until t=100
+>>> smod.DoStochSim() then generates 1 trajectory with 1000 time steps
+>>> smod.Trajectories(1000)
+>>> smod.DoStochSim(end=100, mode='time') then generates 1000 trajectories until t = 100
+>>> smod.DoStochSim() then generates 1000 trajectories with 1000 time steps each
+- Improved CellDivision Module
+- Improved help messages
+
+Updates 1.1.2
+-------------
+- Removed a potential bug in the next reaction method
+
+
+Updates 1.1.1
+-------------
+- We added a functionality to import earlier exported simulations into StochPy: Import2StochPy
+- Removed a bug in the data storing procedure of the tau-leaping implementation
+- Modified the default Export2File functionality
+
+Updates 1.1.0
+-------------
+
+- We added the option to analyze propensity means, standard deviations, distributions, and (raw) moments. As a result, we altered some names in the data_stochsim data object:
+   1. data_stochsim.means --> data_stochsim.species_means
+   2. data_stochsim.standard_deviations --> data_stochsim.species_standard_devations
+   3. data_stochsim.moments --> data_stochsim.species_moments
+- Similar data objects are created for propensities:
+   1. data_stochsim.propensities_means
+   2. data_stochsim.propensities_standard_deviations
+   3. data_stochsim.propensities_moments
+- User can print propensity means and standard deviations with: PrintPropensitiesMeans() and PrintPropensitiesStandardDeviations()
+- In addition to the previous point we added the possibility to do analyses for propensities of multiple trajectories with PlotAveragedPropensitiesTimeCourses() and PrintAveragedPropensitiesTimeCourses()
+- User can analyse auto correlations of species and propensities: GetSpeciesAutocorrelations(),GetPropensitiesAutocorrelations(), PlotSpeciesAutocorrelations(),PlotPropensitiesAutocorrelations(), Export2File(...)
+- User can analyse averaged distributions of species and propensities: smodGetAverageSpeciesDistributions(),smod.GetAveragePropensitiesDistributions(),smod.PlotAverageSpeciesDistributions(),smod.PlotAveragePropensitiesDistributions
+- Write2File() is not longer supported. Users must exploit Export2File which has the same functionalities
+- Arguments of Export2File are completely altered. For more information see the latest user guide
+- Improved handling of (SBML) events 
+- Error messages are more effective
+- More arguments for plotting functions
+- Solved bug in headers of export2file
+- Improved error handling when incorrect color codes are used
+
+- We decided to change the name of a couple of functions to prevent potential confusion:
+  1. GetInterpolatedData(frames) --> GetRegularGrid(npoints)
+  2. PlotInterpolatedData() --> PlotAverageSpeciesTimeCourses()
+  3. PrintInterpolatedData() --> PrintAverageSpeciesTimeCourse()
+  4. PrintTimeSim() --> PrintSpeciesTimeCourses()
+  5. PlotTimesim() --> PlotSpeciesTimeCourses()
+  6. ShowMeans() --> PrintSpeciesMeans()
+  7. ShowStandardDeviations() --> PrintSpeciesStandardDeviations()
+
+  9. PlotWaitingtimes() --> PlotWaitingtimesDistributions()
+  10. PrintWaitingtimes() --> PrintWaitingtimesDistributions()
+  11. GetMeanWaitingtimes() --> GetWaitingtimesMeans()
+  12. PrintMeanWaitingtimes() --> PrintWaitingtimesMeans()
+  13. data_stochsim.waitingtimes_mean --> data_stochsim.waiting_times_means
+  Note that the old functions names are not longer supported. 
+- xlabel, ylabel, and IsLegend are additional arguments in all plotting functions
+
+- data_stochsim_interpolated --> data_stochsim_grid
+- The warning message - "Warning: do not use net stoichiometries for framed-based simulators. Use X > {2}  in stead of $pool > X" - is always shown if users of StochPy exploit Cain and/or StochKit solvers
+- Solved Potential bug in calculating distributions in StochKit interface
+
+
+Updates 1.0.9
+-------------
+- Improved the working of SaveInteractiveSession(filename,path). From this version, iPython remembers all the steps before importing StochPy
+- fixed more bugs in CellDivision module (multiple trajectories problem)
+- corrected the "version" 
+
+Updates 1.0.8
+-------------
+- interactive modification of initial species amounts with ChangeInitialSpeciesAmounts(species,value)
+- fixed bugs in CellDivision module
+
+Updates 1.0.7.1:
+----------------
+- fixed bug in parsing models to StochPy directory
+- fixed bug in high-level function DoCompleteStochSim()
+
+Updates 1.0.7:
+--------------
+- StochPyDemo
+- improved Export2File function
+- corrected a bug for time/amount event at floating numbers
+- Previously, simulations done until t=50 where actually done until the first time point where t>50. From this version, simulations stop at the specified value beforehand for all exact implementations
+- print waiting times and print mean waiting times works correctly for multiple trajectories
+- added exporting of mean waiting times ("meanwaitingtimes") to Export2File
+
+Updates 1.0.6:
+--------------
+- interactive modification of parameters with ChangeParameter(parameter,value)
+- corrected bugs in PlotWaitingtimes()
+- added and revised some examples in the utilities module
+- added alpha version of DoCompleteStochSim(self,error = 0.001,size=100000). Simulation is done until the first four moments converge
+- corrected mistakes in the test script
+
+Updates 1.0.5:
+--------------
+- StochPy.SaveInteractiveSession(filename,path) if you want to store the interactive modelling session
+- additional argument 'maxpoints2plot' for PlotTimeSimulation and PlotPropensities to allow faster plotting of large simulations. This argument is by default set to 10000 points which is normally enough to get nice and fast plots.
+- StochPyCellDivions as an example of performing sequential simulations
+- StochPyCain: you can use the Cain solvers in StochPy if you want faster (but less accurate) solvers. You need to download and install a separate package, StochPyCain.
+- StochPyKit you can use the StochKit solvers in StochPy if you want faster (but less accurate) solvers. You need to download and install a separate package, StochPyKit.
+- You cannot use the Plotting, Printing, or Exporting functions before doing a simulation. In previous versions, a simulation was started if no simulation was done such that plotting was possible, but this version gives an error message.
+- Corrected some bugs in the Nucleosome simulator Module
+
+Updates 1.0.4:
+--------------
+- bugs removed from the StochPy Utils part
+- reset number of trajectories, timesteps, etc. back to normal setting after the use of the DoTestsuite() function 
+
+Updates 1.0.3:
+--------------
+- Bug removed from Interpolated function
+- More plotting functionalities
+
+Updates 1.0.2:
+--------------
+- Added StochPyUtils
+- Removed a bug in the determination of the distribution, mean, and standard deviation for each species.
+- More plotting functionalities 
+
+Updates 1.0.1:
+--------------
+- Added binning options to the PlotDistributions functions, which makes this a "probability distribution function" plotter
+- significant speed-up for calculating the distributions, means, and standard deviations of each species in the model
+- bug removal in the Tau-Leaping implementation
+- both data_stochsim and data_stochsim_interpolated are removed as soon as a new model is selected
+- more information is available in the help of every function
+
+Updates 1.0.0:
+--------------
+- Added functionality
+  * Data objects
+     -> data_stochsim: holds all simulation data from one trajectory
+     -> data_stochsim_interpolated holds all interpolated simulation data
+  * if multiple trajectories are simulated, data_stochsim is dumped for every trajectory
+    By default, the data of the last trajectory is not dumped, but stored in data_stochsim
+    The user can use the new high-level function, GetTrajectoryData(n) see new High-level functions, to obtain data from one of the trajectories 
+  * Events and Assignments are supported
+  * More plotting options (title, linestyle
+  * sim_mode replaces booleans IsTimeSteps and IsEndTime (sim_mode = 'time' or sim_mode = 'steps')
+
+- New high-level functions (alphabetic order):
+  * GetMeans()
+  * GetTrajectoryData(n) where n is the trajectory number
+  * Mode(sim_mode) note that the user can still use Timesteps(timesteps) and Endtime(endtime)
+
+- Altered high-level functions (alphabetic order):
+  * Delete() --> DeleteTempFiles()
+  * MeanWaitingtimes --> PrintMeanWaitingtimes()
+  * Overview() --> ShowOverview()
+  * PlotInterpolSim  --> PlotInterpolatedData()
+  * PrintMeans() --> ShowMeans()
+  * PrintInterpolSim --> PrintInterpolatedData()
+  * PrintSDs() --> ShowStandardDeviations()
+  * Run() --> doStochSim(arguments)  [Run() is still available in this version]
+  * Species() --> ShowSpecies()  
+
+- Altered names (alphabetic order):
+  * self.endtime and self.timesteps merged into self.sim_end
+  * self.Interactive --> self.IsInteractive
+  * self.method    --> self.sim_method
+  * self.ModelDir  --> self.model_dir
+  * self.ModelFile --> self.model_file
+  * self.OutputDir --> self.output_dir
+  * self.run_done  --> self.IsSimulationDone
+  * self.TempDir   --> self.temp_dir
+  * self.Traj      --> self.sim_trajectories
+
+- Removed Bugs:
+  * species names are correct in plots
+
+Updates 0.9.7:
+--------------
+
+- StochPy uses a better method for interpolation
+- New functions for the nucleosome simulation module
+
+
+Updates 0.9.6:
+--------------
+
+- Matrix multiplication - X + = np.dot(N,R) - is replaced by:  X +=  N[i], where i is the reaction that fires for the Direct Method, First Reaction Method and the Next Reaction Method. Much more efficient for models with a lot of species
+- bugs are fixed in Next Reaction Method. 
+- sparse models - chain5, chain50, chain500 and chain1500 - were built with ChainModel and added to the example files. These are used to show how the Next Reaction Method works. 
+- dependency graph is build is a faster way
+- temp directory is created, where ".dat" files are saved to
+- information about runs (like number of time steps) is written to a log file
+- high level function "Testsuite" is added. Automatically, 10.000 runs are done and the mean and standard deviation for each second (0,1,2...) are calculated
+
+
+Updates 0.9.5:
+--------------
+- plotting options are improved. User can plot only variables of interest: ssa.PlotTimeSim("A") or ssa.PlotTimeSim(["A","B"])
+- plotting multiple simulations with different colors if 1 species is plotted 
+- plot screens are allowed to stay open if the user wants to continue working in the interactive session
+- bug corrected in the optimized tau leaping algorithm with regard to printing the output to a txt file
+- high level functions MeanWaitingTimes() is added
+- ".dat" files are deleted after a simulation
+- high levels functions for system overview are added: Species(), Overview()
+
+
