@@ -1,0 +1,27 @@
+StochPy Stochastic modeling in Python
+=====================================
+
+Copyright (c) 2011-2016, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+All rights reserved.
+
+StochPy is distributed under a BSD style licence.
+
+File releases: http://sourceforge.net/projects/stochpy
+Source code: https://github.com/SystemsBioinformatics/stochpy
+
+Author information
+------------------
+
+Timo R. Maarleveld, Brett G. Olivier and Frank J. Bruggeman
+Centrum Wiskunde en Informatica, Amsterdam, Netherlands
+VU University, Amsterdam, Netherlands
+
+Contributors to StochPy code
+----------------------------
+
+ - Brett G. Olivier, 
+ - Catharina Meyer
+
+Please let us know if you feel you should be included in this list.
+
+Last updated: 2016-09-29
