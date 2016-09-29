@@ -1,10 +1,13 @@
 StochPy Stochastic modeling in Python
 =====================================
 
-Copyright (c) 2011-2015, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+Copyright (c) 2011-2016, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
 All rights reserved.
 
 StochPy is distributed under a BSD style licence.
+
+File releases: http://sourceforge.net/projects/stochpy
+Source code: https://github.com/SystemsBioinformatics/stochpy
 
 Author information
 ------------------
@@ -14,9 +17,14 @@ Centrum Wiskunde en Informatica, Amsterdam, Netherlands
 VU University, Amsterdam, Netherlands
 
 e-mail: tmd200@users.sourceforge.net
-web: http://sourceforge.net/projects/stochpy/
 
 Documentation can be found in the user guide (see Documentation directory or http://stochpy.sourceforge.net/html/userguide.html) 
+
+Publication
+~~~~~~~~~~~
+
+StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biological Processes
+http://dx.doi.org/10.1371/journal.pone.0079345
 
 Installation
 ------------
