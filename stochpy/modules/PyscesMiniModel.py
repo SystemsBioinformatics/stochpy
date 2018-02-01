@@ -1372,7 +1372,7 @@ class IntegrationStochasticDataObj(object):
         """
         output = self.time
 
-        if kwargs.has_key('lbls'):
+        if 'lbls' in kwargs:
             lbls = kwargs['lbls']
         else:
             lbls = False
