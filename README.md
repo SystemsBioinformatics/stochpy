@@ -2,12 +2,12 @@
 
 StochPy is a versatile stochastic modeling package which is designed for stochastic simulation of molecular control networks
 
-File releases: http://sourceforge.net/projects/stochpy
-Source code: https://github.com/SystemsBioinformatics/stochpy
+* File releases: http://sourceforge.net/projects/stochpy
+* Source code: https://github.com/SystemsBioinformatics/stochpy
 
 ## Documentation
 
-Documentation can be found in the user guide (see Documentation directory or http://stochpy.sourceforge.net/html/userguide.html)
+Documentation can be found in the user guide (see Documentation directory or in [sourceforge](http://stochpy.sourceforge.net/html/userguide.html))
 
 ## Installation
 
@@ -76,7 +76,7 @@ smod.PrintSpeciesMeans()
 smod.PrintSpeciesStandardDeviations()
 ```
 
-### Switch to data from trajectory 1 and show the means of each species
+### Switch to data from trajectory 1 and show the means of each species
 ```py
 smod.GetTrajectoryData(1)
 smod.PrintSpeciesMeans()
@@ -159,7 +159,7 @@ smod.DoStochSim(method = 'FirstReactionMethod')
 smod.DoTestsuite()
 ```
 
-### Volume Models
+### Volume Models
 ```py
 smod.Model('dsmts-001-11.xml.psc')
 smod.DoStochSim(method = 'Direct',trajectories=1000,end=50,mode ='time')
