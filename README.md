@@ -1,109 +1,123 @@
-StochPy Stochastic modeling in Python
-=====================================
+# StochPy Stochastic modeling in Python
 
-Copyright (c) 2011-2016, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
-All rights reserved.
+StochPy is a versatile stochastic modeling package which is designed for stochastic simulation of molecular control networks
 
-StochPy is distributed under a BSD style licence.
+* File releases: http://sourceforge.net/projects/stochpy
+* Source code: https://github.com/SystemsBioinformatics/stochpy
 
-File releases: http://sourceforge.net/projects/stochpy
-Source code: https://github.com/SystemsBioinformatics/stochpy
+## Documentation
 
-Author information
-------------------
+Documentation can be found in the user guide (see Documentation directory or in [sourceforge](http://stochpy.sourceforge.net/html/userguide.html))
 
-Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
-Centrum Wiskunde en Informatica, Amsterdam, Netherlands
-VU University, Amsterdam, Netherlands
+## Installation
 
-e-mail: tmd200@users.sourceforge.net
-
-Documentation can be found in the user guide (see Documentation directory or http://stochpy.sourceforge.net/html/userguide.html) 
-
-Publication
-~~~~~~~~~~~
-
-StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biological Processes
-http://dx.doi.org/10.1371/journal.pone.0079345
-
-Installation
-------------
-The following software is required before installling StochPy (see user guide for more details):
+The following software is required before installing StochPy (see user guide for more details):
 
 - Python 2.6+ or Python 3.4+
-- NumPy 1.x+
-- Matplotlib (optional)
-- libsbml (optional)
-- libxml2 (optional)
-- mpmath (optional)
+- [NumPy 1.x+](http://www.numpy.org)
+- [Matplotlib](https://matplotlib.org) (optional)
+- [libsbml](http://sbml.org/Software/libSBML) (optional)
+- [libxml2](http://xmlsoft.org) (optional)
+- [mpmath](http://mpmath.org) (optional)
 
-Linux/MAC OS/Cygwin
-~~~~~~~~~~~~~~~~~~~
+#### Linux/MAC OS/Cygwin
 
-1) cd to directory StochPy-2.1.0
-2) sudo python setup.py install
 
-Windows
-~~~~~~~
+In the directory where you downloaded StochPy, go to the directory _StochPy-2.1.0_ and exec the next command:
+
+```bash
+sudo python setup.py install
+```
+
+### Windows
+
 Use the available windows installer or the setup file
 
-Usage
------
+## Getting Started
 
+You can run `ipython` and import `stochpy`:
+
+```py
 import stochpy
 smod = stochpy.SSA()
+```
 
-# 1: Basic Simulation with the Direct method
+### Basic Simulation with the Direct method
+```py
 smod.DoStochSim(IsTrackPropensities=True)
 smod.data_stochsim.simulation_endtime
 smod.data_stochsim.simulation_timesteps
 smod.GetWaitingtimes()
 smod.PrintWaitingtimesMeans()
-# 2: Do some Plotting
+```
+
+### Do some Plotting
+```py
 smod.PlotSpeciesTimeSeries()
 smod.PlotWaitingtimesDistributions()
 smod.PlotPropensitiesTimeSeries()
-# 3: Write data to a text file
+```
+
+### Write data to a text file
+```py
 smod.Export2File()
 smod.Export2File(analysis='distribution')
 smod.Export2File(analysis='distribution',datatype='species')
 smod.Export2File(analysis='mean',datatype='species')
 smod.Export2File(analysis='std',datatype='species')
 smod.Export2File(analysis='autocorrelation',datatype='species')
-# 4: Show the means from the data of 3-th trajectory
+```
+
+### Show the means from the data of 3-th trajectory
+```py
 smod.DoStochSim(trajectories=3) # multiple trajectories
 smod.data_stochsim.simulation_trajectory
 smod.PrintSpeciesMeans()
 smod.PrintSpeciesStandardDeviations()
-# 5: Switch to data from trajectory 1 and show the means of each species
+```
+
+### Switch to data from trajectory 1 and show the means of each species
+```py
 smod.GetTrajectoryData(1)
 smod.PrintSpeciesMeans()
 smod.PrintSpeciesStandardDeviations()
-# 6: Do one long simulation
+```
+
+### Do one long simulation
+```py
 smod.DoStochSim(trajectories=1,end=1000000,mode='steps')
 smod.PrintSpeciesMeans()
 smod.PrintSpeciesStandardDeviations()
-# 7: Plot the PDF for different bin sizes
+```
+
+### Plot the PDF for different bin sizes
+```py
 smod.PlotSpeciesDistributions()
 smod.PlotSpeciesDistributions(bin_size=5)  # larger bin size
 smod.PlotSpeciesDistributions(bin_size=10) # again a larger bin size
 smod.Export2File(analysis='distribution',datatype='species')
+```
 
-# 8: Usage of the Reload Function: Ksyn = 20, kdeg = 0.2
+### Usage of the Reload Function: `Ksyn = 20, kdeg = 0.2`
+```py
 smod.ChangeParameter('Ksyn',20.0)
 smod.ChangeParameter('Kdeg',0.2)
 smod.DoStochSim()
 smod.PrintSpeciesMeans()   # should be ~Ksyn/Kdeg
+```
 
-# 9: Use another model to show the Interpolation features
+### Use another model to show the Interpolation features
+```py
 smod.Model('dsmts-001-01.xml.psc')
-smod.DoStochSim(trajectories=1000,end=50,mode='time') 
+smod.DoStochSim(trajectories=1000,end=50,mode='time')
 smod.GetRegularGrid(npoints=51)
 smod.PlotAverageSpeciesTimeSeries()
 smod.PrintAverageSpeciesTimeSeries()
 smod.Export2File(datatype='species',analysis='timeseries',IsAverage=True)
+```
 
-# 9: Test each method for different models: 
+### Test each method for different models:
+```py
 smod.Model('Autoreg.psc')
 smod.DoStochSim(trajectories=1,end=1000,mode='steps')
 smod.Method('NextReactionMethod')
@@ -114,31 +128,60 @@ smod.Method('FirstReactionMethod')
 smod.DoStochSim(trajectories=1,end=1000,mode='steps')
 smod.Method('TauLeaping')
 smod.DoStochSim(trajectories=1,end=1000,mode='steps')
-
+```
+```py
 smod.Model('DecayingDimerizing.psc')
 smod.DoStochSim(method = 'Direct',trajectories=1,end=50,mode='time')
 smod.DoStochSim(method = 'NextReactionMethod',trajectories=1,end=50,mode='time')
 smod.DoStochSim(method = 'FirstReactionMethod',trajectories=1,end=50,mode='time')
-smod.PlotWaitingtimesDistributions() 
+smod.PlotWaitingtimesDistributions()
 smod.DoStochSim(method = 'TauLeaping',trajectories=1,end=50,mode='time',epsilon=0.03)  # Should outperform all other implementations
 smod.PlotSpeciesTimeSeries()
 #smod.PlotWaitingtimesDistributions()   # Should give an error
-
+```
+```py
 smod.Model('chain500.psc')
 smod.DoStochSim(method = 'Direct',trajectories=1,end=10000,mode='steps')
 smod.DoStochSim(method = 'NextReactionMethod',trajectories=1,end=10000,mode='steps') # should outperform the direct method and all other implementations
+```
 
-# 10: Use the Next Reaction Method to test a model with a time event
-smod.Model('dsmts-003-03.xml.psc') 
+### Use the Next Reaction Method to test a model with a time event
+```py
+smod.Model('dsmts-003-03.xml.psc')
 smod.DoStochSim(method = 'NextReactionMethod')
 smod.DoTestsuite()
+```
 
-# 11: Use the First Reaction method to test a model with a concentration event 
+### Use the First Reaction method to test a model with a concentration event
+```py
 smod.Model('dsmts-003-04.xml.psc')
 smod.DoStochSim(method = 'FirstReactionMethod')
 smod.DoTestsuite()
+```
 
-# 12: Volume Models
-smod.Model('dsmts-001-11.xml.psc') 
+### Volume Models
+```py
+smod.Model('dsmts-001-11.xml.psc')
 smod.DoStochSim(method = 'Direct',trajectories=1000,end=50,mode ='time')
 smod.PrintAverageSpeciesTimeSeries()
+```
+
+## Author information
+
+
+Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+Centrum Wiskunde en Informatica, Amsterdam, Netherlands
+VU University, Amsterdam, Netherlands
+
+> e-mail: tmd200@users.sourceforge.net
+
+## Publication
+
+StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biological Processes
+http://dx.doi.org/10.1371/journal.pone.0079345
+
+## Licence
+Copyright (c) 2011-2016, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+All rights reserved.
+
+StochPy is distributed under a BSD style licence.
