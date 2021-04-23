@@ -573,8 +573,8 @@ class DoPlotting():
         for i in datatype_indices:
             dat_min = distributions[i][0].min()
             dat_max = distributions[i][0].max()
-            n_bins = 1 + (dat_max-dat_min) // bin_size # Just take one trajectory as reference
-            L_bin_edges = np.linspace(dat_min-bin_size/2.0,dat_max+bin_size/2.0,n_bins+1)
+            n_bins = 1 + (dat_max-dat_min) / bin_size # Just take one trajectory as reference
+            L_bin_edges = np.linspace(dat_min-bin_size/2.0,dat_max+bin_size/2.0,int(n_bins+1))
 
             if colors == None:
                 if j >= len(self.colors):
