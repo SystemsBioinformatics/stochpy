@@ -15,6 +15,7 @@ The following software is required before installing StochPy (see user guide for
 
 - Python 2.6+ or Python 3.4+
 - [NumPy 1.x+](http://www.numpy.org)
+- [SciPy](https://scipy.org)
 - [Matplotlib](https://matplotlib.org) (optional)
 - [libsbml](http://sbml.org/Software/libSBML) (optional)
 - [libxml2](http://xmlsoft.org) (optional)
