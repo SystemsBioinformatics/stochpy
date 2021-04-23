@@ -543,7 +543,7 @@ class DoPlotting():
         """
         Plots the distributions of species and/or propensities
 
-        Normed=False because the total probability is determined by summation not by integration.
+        density=False because the total probability is determined by summation not by integration.
 
         Input:
          - *distributions* (nested list)
@@ -587,13 +587,19 @@ class DoPlotting():
                 j=0
 
             if colors == None:
-                output = plt.hist(distributions[i][0],L_bin_edges,weights = distributions[i][1],ls = linestyle,lw = linewidth,color = self.colors[j],histtype = histtype,orientation=orientation,normed=False)
+                print('#'*20)
+                output = plt.hist(distributions[i][0], L_bin_edges, weights = distributions[i][1], ls = linestyle, lw = linewidth, color = self.colors[j], histtype = histtype, orientation=orientation, )
+                print('just ran this line')
+                output = plt.hist(distributions[i][0], L_bin_edges, weights = distributions[i][1], ls = linestyle, lw = linewidth, color = self.colors[j], histtype = histtype, orientation=orientation, density=False)
+                print('just ran this line')
+                print('#'*20)
+
             else:
                if clr.is_color_like(colors[j]):
-                    output = plt.hist(distributions[i][0],L_bin_edges,weights = distributions[i][1],ls = linestyle,lw = linewidth,color = colors[j],histtype = histtype,orientation=orientation,normed=False)
+                    output = plt.hist(distributions[i][0],L_bin_edges,weights = distributions[i][1],ls = linestyle,lw = linewidth,color = colors[j],histtype = histtype,orientation=orientation,density=False)
                else:
                     print("*** WARNING ***: '{0}' is not recognized as a valid color code".format(colors[j]) )
-                    output = plt.hist(distributions[i][0],L_bin_edges,weights = distributions[i][1],ls = linestyle,lw = linewidth,color = self.colors[j],histtype = histtype,orientation=orientation,normed=False)
+                    output = plt.hist(distributions[i][0],L_bin_edges,weights = distributions[i][1],ls = linestyle,lw = linewidth,color = self.colors[j],histtype = histtype,orientation=orientation,density=False)
                     colors = None
             j+=1
         if is_legend:
