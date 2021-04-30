@@ -470,7 +470,10 @@ class DoPlotting():
                 j=0
 
             if colors == None:
-                plt.plot(Arr_time,y,marker,ls = linestyle,lw = linewidth,color = self.colors[j])
+                if marker == '' and linestyle == 'solid':
+                    plt.plot(Arr_time,y, ls = linestyle,lw = linewidth,color = self.colors[j])
+                else:
+                    plt.plot(Arr_time,y,marker,ls = linestyle,lw = linewidth,color = self.colors[j])
             else:
                 if clr.is_color_like(colors[j]):
                     plt.plot(Arr_time,y,marker,ls = linestyle,lw = linewidth,color = colors[j])
