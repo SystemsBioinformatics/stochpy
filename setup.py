@@ -2,7 +2,7 @@
 from __future__ import division, print_function, absolute_import
 
 __doc__ = "StochPy (Stochastic modeling in Python) provides several stochastic simulation algorithms to simulate (bio)chemical systems of reactions in a stochastic manner."
-__version__ = "2.3"
+__version__ = "2.4"
 
 import os
 

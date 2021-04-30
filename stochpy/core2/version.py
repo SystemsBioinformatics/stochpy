@@ -8,7 +8,7 @@ Last Change: September 25, 2014
 """
 
 MAJOR = 2
-MINOR = 3
+MINOR = 4
 MICRO = 0
 STATUS = ''
 

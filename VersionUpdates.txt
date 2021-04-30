@@ -1,3 +1,8 @@
+Updates 2.4:
+------------
+- 
+
+
 Updates 2.3:
 ------------
 - improved sampling method to calculate extant cell species AND volumes (new)

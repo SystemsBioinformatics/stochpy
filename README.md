@@ -5,6 +5,8 @@ StochPy is a versatile stochastic modeling package which is designed for stochas
 * File releases: http://sourceforge.net/projects/stochpy
 * Source code: https://github.com/SystemsBioinformatics/stochpy
 
+StochPy is open source software distributed under the BSD 3-Clause License, see LICENSE file for more details.
+
 ## Documentation
 
 Documentation can be found in the user guide (see Documentation directory or in [sourceforge](http://stochpy.sourceforge.net/html/userguide.html))
@@ -19,6 +21,11 @@ The following software is required before installing StochPy (see user guide for
 - [libsbml](http://sbml.org/Software/libSBML) (optional)
 - [libxml2](http://xmlsoft.org) (optional)
 - [mpmath](http://mpmath.org) (optional)
+
+Install the StochPy dependencies with PIP using the following command (in your StochPy Python environment):
+```bash
+pip install numpy matplotlib python-libsbml mpmath lxml
+```
 
 #### Linux/MAC OS/Cygwin
 
@@ -181,7 +188,7 @@ StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biologica
 http://dx.doi.org/10.1371/journal.pone.0079345
 
 ## Licence
-Copyright (c) 2011-2016, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
-All rights reserved.
+Copyright (c) 2011-2021, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+Vrije Universiteit Amsterdam. All rights reserved.
 
-StochPy is distributed under a BSD style licence.
+StochPy is open source software distributed under the BSD 3-Clause License see LICENSE file for more details.
