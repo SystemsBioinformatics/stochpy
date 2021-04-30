@@ -1,12 +1,13 @@
 Updates 2.4:
 ------------
-- 
+- Python 3 compatibility fixes
+- updated documentation, packaging and metadata
 
 
 Updates 2.3:
 ------------
 - improved sampling method to calculate extant cell species AND volumes (new)
-- we allow plotting of mother and baby cell species AND volume at birth 
+- we allow plotting of mother and baby cell species AND volume at birth
 - we use a different function for plotting distributions (gives the user more flexibility)
 - Silence Mode
 - support of events in cell division simulations
@@ -32,7 +33,7 @@ Updates 2.2.0:
 - (fast) Single molecule method. See documentation for more details
 - improved methods to determine the order of the reaction
 - extra arguments for DoStochSim which provide more options for the tau-leaping method
-- high-level function for cell age distribution 
+- high-level function for cell age distribution
 - improved calculation of cell age
 - 2D trapezoidal rule for calculating the extant cell population
 - different sampling method
@@ -56,14 +57,14 @@ Updates 2.1:
 
 Updates 2.0.1
 -------------
- - SetVolumeDependencies settings still work after changing initial species of parameters in the ChangeInitialSpeciesAmount or ChangeParameters functions. 
+ - SetVolumeDependencies settings still work after changing initial species of parameters in the ChangeInitialSpeciesAmount or ChangeParameters functions.
  - Solved potential bugs in SetVolumeDependencies. We for instance now check if the first argument is a boolean (as it should be)
 
 
 Updates 2.0.0
 -------------
 - delayed stochastic algorithms
-- single molecule stochastic algorithms 
+- single molecule stochastic algorithms
 - volume dependency
 - completely new cell division module
 - improved event handling
@@ -95,7 +96,7 @@ Updates 1.1.3
 - Simulating indicator for single trajectory simulations
 - Progress Bar for multiple trajectory simulations
 - Improved model handling
-- trajectories, mode, method, end are reset if the user not specifically uses the high-level functionalities that are designed for this. An example: 
+- trajectories, mode, method, end are reset if the user not specifically uses the high-level functionalities that are designed for this. An example:
 >>> smod.DoStochSim(trajectories=1000,end=100,mode='time') generates 1000 trajectories until t=100
 >>> smod.DoStochSim() then generates 1 trajectory with 1000 time steps
 >>> smod.Trajectories(1000)
@@ -132,7 +133,7 @@ Updates 1.1.0
 - User can analyse averaged distributions of species and propensities: smodGetAverageSpeciesDistributions(),smod.GetAveragePropensitiesDistributions(),smod.PlotAverageSpeciesDistributions(),smod.PlotAveragePropensitiesDistributions
 - Write2File() is not longer supported. Users must exploit Export2File which has the same functionalities
 - Arguments of Export2File are completely altered. For more information see the latest user guide
-- Improved handling of (SBML) events 
+- Improved handling of (SBML) events
 - Error messages are more effective
 - More arguments for plotting functions
 - Solved bug in headers of export2file
@@ -152,7 +153,7 @@ Updates 1.1.0
   11. GetMeanWaitingtimes() --> GetWaitingtimesMeans()
   12. PrintMeanWaitingtimes() --> PrintWaitingtimesMeans()
   13. data_stochsim.waitingtimes_mean --> data_stochsim.waiting_times_means
-  Note that the old functions names are not longer supported. 
+  Note that the old functions names are not longer supported.
 - xlabel, ylabel, and IsLegend are additional arguments in all plotting functions
 
 - data_stochsim_interpolated --> data_stochsim_grid
@@ -164,7 +165,7 @@ Updates 1.0.9
 -------------
 - Improved the working of SaveInteractiveSession(filename,path). From this version, iPython remembers all the steps before importing StochPy
 - fixed more bugs in CellDivision module (multiple trajectories problem)
-- corrected the "version" 
+- corrected the "version"
 
 Updates 1.0.8
 -------------
@@ -206,7 +207,7 @@ Updates 1.0.5:
 Updates 1.0.4:
 --------------
 - bugs removed from the StochPy Utils part
-- reset number of trajectories, timesteps, etc. back to normal setting after the use of the DoTestsuite() function 
+- reset number of trajectories, timesteps, etc. back to normal setting after the use of the DoTestsuite() function
 
 Updates 1.0.3:
 --------------
@@ -217,7 +218,7 @@ Updates 1.0.2:
 --------------
 - Added StochPyUtils
 - Removed a bug in the determination of the distribution, mean, and standard deviation for each species.
-- More plotting functionalities 
+- More plotting functionalities
 
 Updates 1.0.1:
 --------------
@@ -235,7 +236,7 @@ Updates 1.0.0:
      -> data_stochsim_interpolated holds all interpolated simulation data
   * if multiple trajectories are simulated, data_stochsim is dumped for every trajectory
     By default, the data of the last trajectory is not dumped, but stored in data_stochsim
-    The user can use the new high-level function, GetTrajectoryData(n) see new High-level functions, to obtain data from one of the trajectories 
+    The user can use the new high-level function, GetTrajectoryData(n) see new High-level functions, to obtain data from one of the trajectories
   * Events and Assignments are supported
   * More plotting options (title, linestyle
   * sim_mode replaces booleans IsTimeSteps and IsEndTime (sim_mode = 'time' or sim_mode = 'steps')
@@ -254,7 +255,7 @@ Updates 1.0.0:
   * PrintInterpolSim --> PrintInterpolatedData()
   * PrintSDs() --> ShowStandardDeviations()
   * Run() --> doStochSim(arguments)  [Run() is still available in this version]
-  * Species() --> ShowSpecies()  
+  * Species() --> ShowSpecies()
 
 - Altered names (alphabetic order):
   * self.endtime and self.timesteps merged into self.sim_end
@@ -281,8 +282,8 @@ Updates 0.9.6:
 --------------
 
 - Matrix multiplication - X + = np.dot(N,R) - is replaced by:  X +=  N[i], where i is the reaction that fires for the Direct Method, First Reaction Method and the Next Reaction Method. Much more efficient for models with a lot of species
-- bugs are fixed in Next Reaction Method. 
-- sparse models - chain5, chain50, chain500 and chain1500 - were built with ChainModel and added to the example files. These are used to show how the Next Reaction Method works. 
+- bugs are fixed in Next Reaction Method.
+- sparse models - chain5, chain50, chain500 and chain1500 - were built with ChainModel and added to the example files. These are used to show how the Next Reaction Method works.
 - dependency graph is build is a faster way
 - temp directory is created, where ".dat" files are saved to
 - information about runs (like number of time steps) is written to a log file
@@ -292,7 +293,7 @@ Updates 0.9.6:
 Updates 0.9.5:
 --------------
 - plotting options are improved. User can plot only variables of interest: ssa.PlotTimeSim("A") or ssa.PlotTimeSim(["A","B"])
-- plotting multiple simulations with different colors if 1 species is plotted 
+- plotting multiple simulations with different colors if 1 species is plotted
 - plot screens are allowed to stay open if the user wants to continue working in the interactive session
 - bug corrected in the optimized tau leaping algorithm with regard to printing the output to a txt file
 - high level functions MeanWaitingTimes() is added
