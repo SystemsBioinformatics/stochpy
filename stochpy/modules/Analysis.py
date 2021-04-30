@@ -7,7 +7,7 @@ This module provides functions for Stochastic Simulation Algorithms Analysis (SS
 
 Written by TR Maarleveld, Amsterdam, The Netherlands
 E-mail: tmd200@users.sourceforge.net
-Last Change: August 05, 2015
+
 """
 
 from __future__ import division, print_function, absolute_import

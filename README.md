@@ -23,9 +23,9 @@ The following software is required before installing StochPy (see user guide for
 - [libxml2](http://xmlsoft.org) (optional)
 - [mpmath](http://mpmath.org) (optional)
 
-Install the StochPy dependencies with PIP using the following command (in your StochPy Python environment):
+Install the StochPy dependencies with PIP using the following command (in your StochPy Python virtual environment):
 ```bash
-pip install numpy scipy matplotlib python-libsbml mpmath lxml
+pip install numpy scipy matplotlib python-libsbml mpmath lxml jedi==0.17.2 ipython
 ```
 
 #### Linux/MAC OS/Cygwin
