@@ -1,5 +1,11 @@
+include stochpy/core2/*
+include stochpy/implementations/*
 include stochpy/lib/*
-include stochpy/pscmodels/*
 include stochpy/modules/*
-recursive-include documentation *
-
+include stochpy/pscmodels/*
+include stochpy/tools/*
+include CONTRIBUTORS
+include LICENSE
+include README.md
+include requirements.txt
+include VersionUpdates.txt

@@ -7,6 +7,13 @@ __version__ = "2.4"
 import os
 
 try:
+    import setuptools
+    print('Using setuptools.')
+except:
+    print('Using distutils')
+
+
+try:
     from numpy.distutils.core import setup
 except Exception as ex:
     print(ex)
@@ -34,10 +41,10 @@ setup(name="StochPy",
     """.format(__version__),
     author = "T.R. Maarleveld",
     author_email = "tmd200@users.sourceforge.net",
-    maintainer = "T.R. Maarleveld",
+    maintainer = "Brett Olivier",
     maintainer_email = "tmd200@users.sourceforge.net",
     url = "http://stochpy.sourceforge.net",
-    download_url = "http://stochpy.sourceforge.net/download.html",
+    download_url = "https://github.com/SystemsBioinformatics/stochpy",
     license = " BSD License ",
     keywords = " Bioinformatics, Computational Systems Biology, Bioinformatics, Modeling, Simulation, Stochastic Simulation Algorithms, Stochastic",
     zip_safe = False,
@@ -59,8 +66,7 @@ setup(name="StochPy",
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
-    'Topic :: Scientific/Engineering :: Bio-Informatics',
-    'Topic :: Scientific/Engineering :: Simulations'],
+    'Topic :: Scientific/Engineering :: Bio-Informatics'],
     packages = mypackages,
     data_files = mydata_files
     )
