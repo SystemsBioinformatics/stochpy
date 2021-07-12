@@ -2,7 +2,8 @@
 
 StochPy is a versatile stochastic modeling package which is designed for stochastic simulation of molecular control networks
 
-* File releases: http://sourceforge.net/projects/stochpy
+* File releases 2.3 and earlier: http://sourceforge.net/projects/stochpy
+* File releases 2.4+: PyPI and Github.
 * Source code: https://github.com/SystemsBioinformatics/stochpy
 
 StochPy is open source software distributed under the BSD 3-Clause License, see LICENSE file for more details.
