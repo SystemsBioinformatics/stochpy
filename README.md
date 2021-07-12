@@ -23,23 +23,33 @@ The following software is required before installing StochPy (see user guide for
 - [libxml2](http://xmlsoft.org) (optional)
 - [mpmath](http://mpmath.org) (optional)
 
-Install the StochPy dependencies with PIP using the following command (in your StochPy Python virtual environment):
+Install StochPy and dependencies with PIP using the following command (in your StochPy Python virtual environment):
 ```bash
-pip install numpy scipy matplotlib python-libsbml mpmath lxml jedi==0.17.2 ipython
+pip install scipy matplotlib python-libsbml jedi==0.17.2 ipython stochpy
 ```
 
-#### Linux/MAC OS/Cygwin
+If you are using Anaconda, create a custom conda environment for StochPy, for example:
+```bash
+conda create -n "stochpy39" -c sbmlteam python=3.9 pip scipy matplotlib sympy ipython
+```
+activate your new environment, install StochPy (only required once per environment) and start ipython.
+```bash
+conda activate stochpy39
+pip install stochpy
+ipython
 
+```
 
-In the directory where you downloaded StochPy, go to the directory _StochPy-2.1.0_ and exec the next command:
+#### Linux/MAC OS/Cygwin from source.
 
+In the directory where you downloaded/cloned the StochPy source, for example, the git main branch:
 ```bash
 sudo python setup.py install
 ```
 
 ### Windows
 
-Use the available windows installer or the setup file
+Use the available windows installer or use PyPI (described above).
 
 ## Getting Started
 
