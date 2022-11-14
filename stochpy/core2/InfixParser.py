@@ -166,6 +166,7 @@ class MyInfixLexer:
     # Build the lexer
     def buildlexer(self,**kwargs):
         # try and find a temporary workspace
+        currentDirectory = os.getcwd()
         if 'TMP' in os.environ:
             tempDir = os.environ['TMP']
         elif 'TEMP' in os.environ:
@@ -174,6 +175,7 @@ class MyInfixLexer:
             tempDir = os.getcwd()
         os.chdir(tempDir)
         self.lexer = lex.lex(object=self, **kwargs)
+        os.chdir(currentDirectory)
 
     # Test it output
     def testlexer(self,data):
