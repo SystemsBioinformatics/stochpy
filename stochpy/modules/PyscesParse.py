@@ -21,7 +21,7 @@ from __future__ import division, print_function, absolute_import
 
 from stochpy import model_dir, output_dir
 
-import os,copy,sys,imp
+import os,copy,sys,importlib
 from ..lib import lex
 from ..lib import yacc
 
@@ -1230,8 +1230,8 @@ class PySCeSParser:
         self.ModelUsesNumpyFuncs = False
 
         # 4 hrs of debugging and these two lines solve the problem .... I'm out of here!
-        imp.reload(lex)
-        imp.reload(yacc)
+        importlib.reload(lex)
+        importlib.reload(yacc)
         # fixes the obscure reload <--> garbage collection reference overload bug ... who said scripted lang's were
         # easy to use :-) - brett 20040122
 
