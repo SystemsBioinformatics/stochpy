@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "numpy>=1.21.6"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "StochPy"
+version = "2.4"
+description = "StochPy (Stochastic modeling in Python) provides several stochastic simulation algorithms to simulate (bio)chemical systems of reactions in a stochastic manner."
+readme = "README.md"
+authors = [
+    {name = "T.R. Maarleveld", email = "tmd200@users.sourceforge.net"},
+]
+maintainers = [
+    {name = "Brett Olivier", email = "tmd200@users.sourceforge.net"},
+]
+license = {text = "BSD License"}
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Development Status :: 6 - Mature",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+keywords = ["Bioinformatics", "Computational Systems Biology", "Modeling", "Simulation", "Stochastic Simulation Algorithms", "Stochastic"]
+dependencies = [
+    "numpy>=1.21.6",
+    "scipy",
+    "matplotlib",
+    "lxml",
+    "mpmath",
+    "ipython",
+]
+
+[project.urls]
+"Homepage" = "http://stochpy.sourceforge.net"
+"Download" = "https://github.com/SystemsBioinformatics/stochpy"
+"Bug Tracker" = "https://github.com/SystemsBioinformatics/stochpy/issues"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = [
+    "stochpy",
+    "stochpy.lib",
+    "stochpy.modules",
+    "stochpy.pscmodels",
+    "stochpy.implementations",
+    "stochpy.core2",
+    "stochpy.tools"
+]
+include-package-data = true
