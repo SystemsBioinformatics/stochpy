@@ -17,7 +17,7 @@ Brett G. Olivier
 from __future__ import print_function
 from __future__ import absolute_import
 
-import os,math,imp
+import os,math,importlib
 
 from .version import __version__
 from . import  lex
@@ -444,5 +444,5 @@ class MyInfixParser(MyInfixLexer):
         if self._runCount > self._runCountmax:
             self._runCount == 0
             # we're back !!!
-            imp.reload(lex)
-            imp.reload(yacc)
+            importlib.reload(lex)
+            importlib.reload(yacc)
