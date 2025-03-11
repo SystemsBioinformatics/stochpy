@@ -1003,7 +1003,7 @@ class CellDivision(ExtrapolateExtant,PlottingFunctions):
         t_division = self.StochSim.settings.endtime
         self._output_after_division.insert(0, t_division )
         if not self.StochSim._IsTauleaping:
-            self._output_after_division.append(np.NAN)      # no reaction occurs at cell division
+            self._output_after_division.append(np.nan)      # no reaction occurs at cell division
 
         if self.StochSim.SSA._IsSpeciesSelection:
             self._species_at_birth.append([self._output_after_division[i] for i in self.StochSim.SSA.sim_output_indices[1:-1]])
