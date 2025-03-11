@@ -58,7 +58,7 @@ def doSequentialSim(smod,n_generations,cell_division_times):
         ### replace last time point with species amounts after division ###
         species_after_division = copy.deepcopy(list(smod.settings.X_matrix))
         species_after_division.insert(0,cell_division_times[0:i].sum()) # add time of cell division
-        species_after_division.append(np.NAN) # no specific reaction occured at cell division
+        species_after_division.append(np.nan) # no specific reaction occured at cell division
         smod.SSA.sim_output[-1] = copy.deepcopy(species_after_division) 
  
         ### Set settings for new simulation and simulate the next generation ### 
