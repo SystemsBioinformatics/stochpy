@@ -29,7 +29,7 @@ InfixParser.buildlexer()
 InfixParser.buildparser(debug=0, debugfile='infix.dbg', tabmodule='infix_tabmodule',outputdir = output_dir) # 28/08/2014. outputdir added
 InfixParser.setNameStr('self.', '')
 
-mach_spec = np.MachAr()
+mach_eps = np.finfo(float).eps
 pscParser = PyscesParse.PySCeSParser(debug=0)
 
 class NewCoreBase(object):
@@ -1115,7 +1115,7 @@ class IntegrationStochasticDataObj(object):
                 variance = sum((self.waiting_times_means[i]- waiting_times_r)**2)/len(waiting_times_r)
                 self.waiting_times_standard_deviations.append(variance**0.5)
             else:
-                self.waiting_times_standard_deviations.append(np.NAN)
+                self.waiting_times_standard_deviations.append(np.nan)
 
 
     def setWaitingtimes(self, waiting_times, lbls=None):
