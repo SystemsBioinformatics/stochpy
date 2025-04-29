@@ -5,5 +5,3 @@ python-libsbml
 lxml
 mpmath
 pyreadline
-jedi==0.17.2
-ipython

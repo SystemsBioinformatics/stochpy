@@ -11,6 +11,8 @@ try:
 except:
     print('Using distutils')
 
+# not needed anympre
+"""
 try:
     import numpy
 except Exception as ex:
@@ -18,15 +20,22 @@ except Exception as ex:
     print("StochPy requires NumPy\n")
     print("See http://numpy.scipy.org/ for more information about NumPy")
     sys.exit(-1)
+"""
+
+# from numpy.distutils.core import setup
+from setuptools import setup
 
 local_path = os.path.dirname(os.path.abspath(sys.argv[0]))  # Get the dir of setup.py
 os.chdir(local_path)
 
+# modfold = os.path.join(local_path, 'stochpy', 'pscmodels')
+# mods = os.listdir(modfold)
+
+# we now leave this to the pyproject definition
+# mypackages = ['stochpy','stochpy.lib','stochpy.modules','stochpy.pscmodels','stochpy.implementations','stochpy.core2','stochpy.tools']  # My subpackage list
 mydata_files = []
-modfold = os.path.join(local_path, 'stochpy', 'pscmodels')
-mods = os.listdir(modfold)
-mypackages = ['stochpy','stochpy.lib','stochpy.modules','stochpy.pscmodels','stochpy.implementations','stochpy.core2','stochpy.tools']  # My subpackage list
 mymodules = []
+mypackages = []
 
 setup(
     name="StochPy",
@@ -45,7 +54,7 @@ setup(
     license="BSD License",
     keywords="Bioinformatics, Computational Systems Biology, Bioinformatics, Modeling, Simulation, Stochastic Simulation Algorithms, Stochastic",
     zip_safe=False,
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     install_requires=[
         'numpy>=1.21.6',
         'scipy',
@@ -61,10 +70,8 @@ setup(
         'Environment :: Console',
         'Intended Audience :: End Users/Desktop',
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
