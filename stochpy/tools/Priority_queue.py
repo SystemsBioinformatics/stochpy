@@ -60,7 +60,8 @@ why.
 __author__ = ('Nezar Abdennur', 'nabdennur@gmail.com')  
 __all__ = ['PQDict', 'PQDictEntry', 'heapsorted_by_value']
 
-from collections import Mapping, MutableMapping
+#from collections import Mapping, MutableMapping
+from collections.abc import Mapping, MutableMapping
 from abc import ABCMeta, abstractmethod
 
 def show_tree(tree, total_width=36, fill=' '):

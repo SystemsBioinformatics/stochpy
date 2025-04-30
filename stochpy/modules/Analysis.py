@@ -24,6 +24,8 @@ if _IsNumPy:
 else:
     sys.exit()
 
+import scipy
+
 import copy,sys
 
 def getDataForTimeSimPlot(Arr_data,npoints = 100000,quiet=False):
@@ -318,13 +320,13 @@ def FFTconvolve(in1, in2, mode="full", axis=None):
     # Always use 2**n-sized FFT
     fsize = int(2**np.ceil(np.log2(size)))
     if axis is None:
-        IN1 = np.fft.fftpack.fftn(in1,fsize)
-        IN1 *= np.fft.fftpack.fftn(in2,fsize)
-        ret = np.fft.fftpack.ifftn(IN1)[fslice].copy()
+        IN1 = scipy.fftpack.fftn(in1,fsize)
+        IN1 *= scipy.fftpack.fftn(in2,fsize)
+        ret = scipy.fftpack.ifftn(IN1)[fslice].copy()
     else:
-        IN1 = np.fft.fftpack.fft(in1,fsize,axis=axis)
-        IN1 *= np.fft.fftpack.fft(in2,fsize,axis=axis)
-        ret = np.fft.fftpack.ifft(IN1,axis=axis)[fslice].copy()
+        IN1 = scipy.fftpack.fft(in1,fsize,axis=axis)
+        IN1 *= scipy.fftpack.fft(in2,fsize,axis=axis)
+        ret = scipy.fftpack.ifft(IN1,axis=axis)[fslice].copy()
     del IN1
     if not complex_result:
         ret = ret.real
