@@ -272,7 +272,7 @@ class StochPySSA_Shared():
             output_init.append(amount)            
         
         if not IsTauleaping:  
-            output_init.append(np.NAN)
+            output_init.append(np.nan)
         
         if self._IsSpeciesSelection:
             output_init = [output_init[i] for i in self.sim_output_indices]
