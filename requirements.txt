@@ -3,5 +3,3 @@ scipy
 matplotlib
 python-libsbml
 lxml
-mpmath
-pyreadline

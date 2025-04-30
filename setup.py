@@ -1,47 +1,24 @@
 #!/usr/bin/env python
 from __future__ import division, print_function, absolute_import
 __doc__ = "StochPy (Stochastic modeling in Python) provides several stochastic simulation algorithms to simulate (bio)chemical systems of reactions in a stochastic manner."
-__version__ = "2.4"
+__version__ = "2.5"
 import os
 import sys
 import time
 
 local_path = os.path.dirname(os.path.abspath(os.sys.argv[0]))
 
-try:
-    from setuptools import setup, find_packages, find_namespace_packages
 
-    install_requires_src = ['numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'xlrd', 'xlwt', 'swiglpk', 'scipy', 'XlsxWriter']
-    extras_require_src = {
-        'all': ['sympy', 'numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'xlrd', 'xlwt', 'swiglpk', 'scipy', 'nose_py3', 'XlsxWriter'],
-    }
-    tests_require_src = ['numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'numpy', 'nose_py3']
-except:
-    from distutils.core import setup 
+from setuptools import setup, find_packages, find_namespace_packages
 
-    install_requires_src = []
-    extras_require_src = {}
-    tests_require_src = []
-
+install_requires_src = ['numpy', 'packaging', 'python_libsbml', 'lxml', 'scipy', 'matplotlib', 'ipython']
+extras_require_src = {'all': ['numpy', 'packaging', 'python_libsbml', 'lxml', 'scipy', 'matplotlib', 'ipython']}
+tests_require_src = ['numpy', 'packaging', 'python_libsbml', 'lxml', 'scipy', 'matplotlib', 'ipython']
 mydata_files = []
-# from numpy.distutils.core import setup
 
-
-# modfold = os.path.join(local_path, 'stochpy', 'pscmodels')
-# mods = os.listdir(modfold)
-
-# we now leave this to the pyproject definition
 #mypackages = ['stochpy','stochpy.lib','stochpy.modules','stochpy.pscmodels','stochpy.implementations','stochpy.core2','stochpy.tools']  # My subpackage list
 mypackages = find_packages(where='stochpy',
                            include=['lib', 'modules', 'pscmodels', 'implementations', 'core2', 'tools'])
-
-#mypackages = find_packages(where='stochpy')
-#mypackages = find_namespace_packages(where='stochpy')
-
-print("XXXXXXXXXXXXXXXXXXXXXX", os.getcwd())
-print(mypackages)
-print("XXXXXXXXXXXXXXXXXXXXXX", local_path)
-
 
 setup(
     package_dir={"stochpy": "stochpy"},

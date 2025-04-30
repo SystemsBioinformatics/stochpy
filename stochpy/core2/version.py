@@ -4,11 +4,11 @@ StochPy Version
 
 Written by T.R. Maarleveld, Amsterdam, The Netherlands
 E-mail: tmd200@users.sourceforge.net
-Last Change: September 25, 2014
+Last Change: September 25, 2025
 """
 
 MAJOR = 2
-MINOR = 4
+MINOR = 5
 MICRO = 0
 STATUS = ''
 

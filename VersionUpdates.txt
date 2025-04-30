@@ -1,3 +1,10 @@
+Updates 2.5
+-----------
+- Python 3.10 compatibility.
+- Setup fixed to work with newer setuptools, pythons.
+- Numpy compatibility fixes.
+
+
 Updates 2.4:
 ------------
 - Python 3 compatibility fixes
