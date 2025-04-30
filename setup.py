@@ -4,40 +4,48 @@ __doc__ = "StochPy (Stochastic modeling in Python) provides several stochastic s
 __version__ = "2.4"
 import os
 import sys
+import time
+
+local_path = os.path.dirname(os.path.abspath(os.sys.argv[0]))
 
 try:
-    import setuptools
-    print('Using setuptools.')
+    from setuptools import setup, find_packages, find_namespace_packages
+
+    install_requires_src = ['numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'xlrd', 'xlwt', 'swiglpk', 'scipy', 'XlsxWriter']
+    extras_require_src = {
+        'all': ['sympy', 'numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'xlrd', 'xlwt', 'swiglpk', 'scipy', 'nose_py3', 'XlsxWriter'],
+    }
+    tests_require_src = ['numpy', 'packaging', 'pyparsing', 'python_libsbml', 'lxml', 'numpy', 'nose_py3']
 except:
-    print('Using distutils')
+    from distutils.core import setup 
 
-# not needed anympre
-"""
-try:
-    import numpy
-except Exception as ex:
-    print(ex)
-    print("StochPy requires NumPy\n")
-    print("See http://numpy.scipy.org/ for more information about NumPy")
-    sys.exit(-1)
-"""
+    install_requires_src = []
+    extras_require_src = {}
+    tests_require_src = []
 
+mydata_files = []
 # from numpy.distutils.core import setup
-from setuptools import setup
 
-local_path = os.path.dirname(os.path.abspath(sys.argv[0]))  # Get the dir of setup.py
-os.chdir(local_path)
 
 # modfold = os.path.join(local_path, 'stochpy', 'pscmodels')
 # mods = os.listdir(modfold)
 
 # we now leave this to the pyproject definition
-# mypackages = ['stochpy','stochpy.lib','stochpy.modules','stochpy.pscmodels','stochpy.implementations','stochpy.core2','stochpy.tools']  # My subpackage list
-mydata_files = []
-mymodules = []
-mypackages = []
+#mypackages = ['stochpy','stochpy.lib','stochpy.modules','stochpy.pscmodels','stochpy.implementations','stochpy.core2','stochpy.tools']  # My subpackage list
+mypackages = find_packages(where='stochpy',
+                           include=['lib', 'modules', 'pscmodels', 'implementations', 'core2', 'tools'])
+
+#mypackages = find_packages(where='stochpy')
+#mypackages = find_namespace_packages(where='stochpy')
+
+print("XXXXXXXXXXXXXXXXXXXXXX", os.getcwd())
+print(mypackages)
+print("XXXXXXXXXXXXXXXXXXXXXX", local_path)
+
 
 setup(
+    package_dir={"stochpy": "stochpy"},
+    packages=mypackages,
     name="StochPy",
     version=__version__,
     description=__doc__,
@@ -53,17 +61,10 @@ setup(
     download_url="https://github.com/SystemsBioinformatics/stochpy",
     license="BSD License",
     keywords="Bioinformatics, Computational Systems Biology, Bioinformatics, Modeling, Simulation, Stochastic Simulation Algorithms, Stochastic",
-    zip_safe=False,
+    install_requires=install_requires_src,
+    extras_require=extras_require_src,
     python_requires='>=3.7',
-    install_requires=[
-        'numpy>=1.21.6',
-        'scipy',
-        'matplotlib',
-        'lxml',
-        'mpmath',
-        'ipython',
-    ],
-    platforms=["Windows", "Linux", "Mac OS-X"],  # "Solaris", "", "Unix"],
+    platforms=["Windows", "Linux", "Mac"],  # "Solaris", "", "Unix"],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Development Status :: 6 - Mature',
@@ -79,6 +80,5 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Topic :: Scientific/Engineering :: Bio-Informatics'
     ],
-    packages=mypackages,
     data_files=mydata_files
 )

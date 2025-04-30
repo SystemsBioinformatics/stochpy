@@ -35,10 +35,7 @@ keywords = ["Bioinformatics", "Computational Systems Biology", "Modeling", "Simu
 dependencies = [
     "numpy>=1.21.6",
     "scipy",
-    "matplotlib",
-    "lxml",
-    "mpmath",
-    "ipython",
+    "matplotlib"
 ]
 
 [project.urls]
@@ -47,7 +44,7 @@ dependencies = [
 "Bug Tracker" = "https://github.com/SystemsBioinformatics/stochpy/issues"
 
 [tool.setuptools]
-package-dir = {"" = "."}
+package-dir = {"stochpy" = "stochpy"}
 packages = [
     "stochpy",
     "stochpy.lib",
