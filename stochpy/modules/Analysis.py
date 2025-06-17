@@ -592,12 +592,7 @@ class DoPlotting():
                 j=0
 
             if colors == None:
-                print('#'*20)
-                output = plt.hist(distributions[i][0], L_bin_edges, weights = distributions[i][1], ls = linestyle, lw = linewidth, color = self.colors[j], histtype = histtype, orientation=orientation, )
-                print('just ran this line')
                 output = plt.hist(distributions[i][0], L_bin_edges, weights = distributions[i][1], ls = linestyle, lw = linewidth, color = self.colors[j], histtype = histtype, orientation=orientation, density=False)
-                print('just ran this line')
-                print('#'*20)
 
             else:
                if clr.is_color_like(colors[j]):
