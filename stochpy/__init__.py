@@ -2,7 +2,7 @@
 """
 StochPy - Stochastic modeling in Python (http://stochpy.sourceforge.net)
 
-Copyright (C) 2010-2015 T.R Maarlveld, B.G. Olivier, F.J. Bruggeman all rights reserved.
+Copyright (C) 2010-2025 T.R Maarlveld, B.G. Olivier, F.J. Bruggeman all rights reserved.
 
 Timo R. Maarleveld (tmd200@users.sourceforge.net)
 Centrum Wiskunde & Informatica, Amsterdam, Netherlands
@@ -277,7 +277,7 @@ print("""
 #######################################################################
 #  StochPy: Stochastic modeling in Python                             #
 #  http://stochpy.sourceforge.net                                     #
-#  Copyright(C) T.R Maarleveld, B.G. Olivier, F.J Bruggeman 2010-2015 #
+#  Copyright(C) T.R Maarleveld, B.G. Olivier, F.J Bruggeman 2010-2025 #
 #  DOI: 10.1371/journal.pone.0079345                                  #
 #  Email: tmd200@users.sourceforge.net                                #
 #  VU University, Amsterdam, Netherlands                              #

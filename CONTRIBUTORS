@@ -1,7 +1,7 @@
 # StochPy Stochastic modeling in Python
 
 
-Copyright (c) 2011-2021, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+Copyright (c) 2011-2025, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
 All rights reserved.
 
 StochPy is distributed under a BSD style licence.
@@ -22,9 +22,12 @@ Vrije Universiteit Amsterdam, Amsterdam, Netherlands
 
 ## GitHub contributions (per release):
 
+### Release 2.5
+Thanks for the contributions and updates @V-DeVito, @zesloth
+
 ### Release 2.4
 Thanks for the contributions @zesloth, @enricozb and @developerfab
 
 Please let us know if you feel you should be included in this list.
 
-Last updated: 2021-04-30
+Last updated: 2025-06-18

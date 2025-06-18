@@ -16,8 +16,8 @@ Documentation can be found in the user guide (see Documentation directory or in 
 
 The following software is required before installing StochPy (see user guide for more details):
 
-- Python 2.6+ or Python 3.4+
-- [NumPy 1.x+](http://www.numpy.org)
+- Python 3.9+ and Python 2.6+ (obsolete)
+- [NumPy 1.21+](http://www.numpy.org)
 - [SciPy](https://scipy.org)
 - [Matplotlib](https://matplotlib.org) (optional)
 - [libsbml](http://sbml.org/Software/libSBML) (optional)
@@ -26,16 +26,16 @@ The following software is required before installing StochPy (see user guide for
 
 Install StochPy and dependencies with PIP using the following command (in your StochPy Python virtual environment):
 ```bash
-pip install scipy matplotlib python-libsbml jedi==0.17.2 ipython stochpy
+pip install numpy scipy matplotlib python-libsbml ipython stochpy
 ```
 
 If you are using Anaconda, create a custom conda environment for StochPy, for example:
 ```bash
-conda create -n "stochpy39" -c sbmlteam python=3.9 pip scipy matplotlib sympy ipython
+conda create -n "stochpy10" python=3.10 pip numpy scipy matplotlib sympy ipython
 ```
 activate your new environment, install StochPy (only required once per environment) and start ipython.
 ```bash
-conda activate stochpy39
+conda activate stochpy10
 pip install stochpy
 ipython
 
@@ -45,7 +45,7 @@ ipython
 
 In the directory where you downloaded/cloned the StochPy source, for example, the git main branch:
 ```bash
-sudo python setup.py install
+pip install .
 ```
 
 ### Windows
@@ -59,6 +59,8 @@ You can run `ipython` and import `stochpy`:
 ```py
 import stochpy
 smod = stochpy.SSA()
+# Run the demo
+stochpy.Demo()
 ```
 
 ### Basic Simulation with the Direct method
@@ -193,6 +195,7 @@ Centrum Wiskunde en Informatica, Amsterdam, Netherlands
 VU University, Amsterdam, Netherlands
 
 > e-mail: tmd200@users.sourceforge.net
+> e-mail: b.g.olivier@vu.nl
 
 ## Publication
 
@@ -200,7 +203,7 @@ StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biologica
 http://dx.doi.org/10.1371/journal.pone.0079345
 
 ## Licence
-Copyright (c) 2011-2021, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
+Copyright (c) 2011-2025, Timo R. Maarleveld, Brett G. Olivier, and Frank J. Bruggeman
 Vrije Universiteit Amsterdam. All rights reserved.
 
 StochPy is open source software distributed under the BSD 3-Clause License see LICENSE file for more details.
