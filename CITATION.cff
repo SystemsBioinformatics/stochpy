@@ -1,0 +1,28 @@
+# YAML 1.2
+---
+cff-version: "1.2.2"
+message: "If you use this software, please cite it using the information provided in this metadata."
+authors:
+    -
+        given-names: Timo
+        family-names: Maarleveld
+        affiliation: "Vrije Universiteit Amsterdam"
+        orcid: "https://orcid.org/0000-0002-3947-134X"
+    -
+        given-names: Brett
+        family-names: Olivier
+        affiliation: "Vrije Universiteit Amsterdam"
+        orcid: "https://orcid.org/0000-0002-5293-5321"
+    -
+        given-names: Frank
+        family-names: Bruggeman
+        affiliation: "Vrije Universiteit Amsterdam"
+        orcid: "https://orcid.org/0000-0002-0255-4766"
+title: "StochPy: A Comprehensive, User-Friendly Tool for Simulating Stochastic Biological Processes"
+version: "2.5"
+repository-code: "https://github.com/SystemsBioinformatics/stochpy"
+date-released: 2025-06-18
+license: "BSD-3-Clause"
+url: "https://github.com/SystemsBioinformatics/stochpy"
+abstract: "StochPy is a versatile stochastic modeling package which is designed for stochastic simulation of molecular control networks."
+...
