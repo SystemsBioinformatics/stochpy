@@ -40,7 +40,7 @@ setup(
     keywords="Bioinformatics, Computational Systems Biology, Bioinformatics, Modeling, Simulation, Stochastic Simulation Algorithms, Stochastic",
     install_requires=install_requires_src,
     extras_require=extras_require_src,
-    python_requires='>=3.7',
+    python_requires='>=3.9',
     platforms=["Windows", "Linux", "Mac"],  # "Solaris", "", "Unix"],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -50,11 +50,10 @@ setup(
         'Intended Audience :: Science/Research',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Scientific/Engineering :: Bio-Informatics'
     ],
     data_files=mydata_files

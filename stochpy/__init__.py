@@ -9,20 +9,20 @@ Centrum Wiskunde & Informatica, Amsterdam, Netherlands
 VU University, Amsterdam, Netherlands
 
 Permission to use, modify, and distribute this software is given under the
-terms of the StochPy (BSD style) license. 
+terms of the StochPy (BSD style) license.
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
 """
 from __future__ import division, print_function, absolute_import
 
-__doc__ =   """        
+__doc__ =   """
             StochPy: Stochastic Modeling in Python
             =====================================
-            
+
             StochPy (Stochastic modeling in Python) is a flexible software tool for stochastic simulation in cell biology. It provides various stochastic
             simulation algorithms, SBML support, analyses of the probability distributions of molecule copy numbers and event waiting times, analyses of stochastic time
             series, and a range of additional statistical functions and plotting facilities for stochastic simulations.
-            
+
             Options:
             --------
             - Stochastic Simulations
@@ -37,12 +37,12 @@ __doc__ =   """
             StochPy can be used in an interactive Python shell:
 
             Usage
-            -----            
+            -----
             >>> import stochpy
             >>> utils = stochpy.Utils()
             >>> utils.doExample1()
             >>> utils.doExample2()
-            >>> smod = stochpy.SSA()   # stochastic simulation algorithm module            
+            >>> smod = stochpy.SSA()   # stochastic simulation algorithm module
             >>> help(smod)
             >>> help(stochpy.SSA)      # (some windows versions)
             >>> stochpy?
@@ -55,7 +55,7 @@ __doc__ =   """
 
 from .core2.version import __version__
 
-import os,shutil,sys
+import os, shutil, sys
 
 try:
     import readline
@@ -64,7 +64,8 @@ except:
     _IsReadline = False
 
 try:
-    from numpy.distutils.core import setup, Extension
+    # from numpy.distutils.core import setup, Extension
+    import numpy
     _IsNumPy = True
 except Exception as ex:
     _IsNumPy = False
@@ -74,7 +75,7 @@ except Exception as ex:
     os.sys.exit(-1)
 
 try:
-    import matplotlib        
+    import matplotlib
     _IsMPL = True
 except:
     _IsMPL = False
@@ -82,24 +83,24 @@ except:
     print("Info: See http://matplotlib.sourceforge.net/ for more information about Matplotlib.")
 
 _IsPlotting = False
-try: 
-    import matplotlib.pyplot as plt        
+try:
+    import matplotlib.pyplot as plt
     _IsPlotting = True
-except Exception as er:     
-    print(er) 
+except Exception as er:
+    print(er)
 
 def InitiateModels(directory):
     """
     Build several models written in PSC MDL and SBML
-    
+
     Input:
      - *directory* (string)
-    """    
+    """
     from .pscmodels import Burstmodel
     from .pscmodels import BirthDeath
     from .pscmodels import ImmigrationDeath
     from .pscmodels import DecayingDimerizing
-    from .pscmodels import Autoreg    
+    from .pscmodels import Autoreg
     from .pscmodels import CellDivision as celldivision
     from .pscmodels import GeneDuplication
     from .pscmodels import dsmts_001_01
@@ -117,7 +118,7 @@ def InitiateModels(directory):
     from .pscmodels import TranscriptionIntermediate
     from .pscmodels import Schlogl
     from .pscmodels import SignalingTimeVaryingL
-    from .pscmodels import Signaling3cCD  
+    from .pscmodels import Signaling3cCD
 
     models = {}
     models['Signaling3cCD.psc'] = Signaling3cCD.model
@@ -128,24 +129,24 @@ def InitiateModels(directory):
     models['BirthDeath.psc'] = BirthDeath.model
     models['DecayingDimerizing.psc'] = DecayingDimerizing.model
     models['Autoreg.psc'] = Autoreg.model
-    models['Autoreg.xml'] = Autoreg.xml_model    
+    models['Autoreg.xml'] = Autoreg.xml_model
     models['CellDivision.psc'] = celldivision.model
     models['GeneDuplication.psc'] = GeneDuplication.model
     models['Isomerization.psc'] = Isomerization.model
     models['Polymerase.psc'] = Polymerase.model
     models['TranscriptionIntermediate.psc'] = TranscriptionIntermediate.model
     models['dsmts-001-01.xml.psc'] = dsmts_001_01.model
-    models['dsmts-001-01.xml'] = dsmts_001_01.xml_model    
+    models['dsmts-001-01.xml'] = dsmts_001_01.xml_model
     models['dsmts-001-11.xml.psc'] = dsmts_001_11.model
-    models['dsmts-001-11.xml'] = dsmts_001_11.xml_model    
+    models['dsmts-001-11.xml'] = dsmts_001_11.xml_model
     models['dsmts-001-19.xml.psc'] = dsmts_001_19.model
     models['dsmts-001-19.xml'] = dsmts_001_19.xml_model
     models['dsmts-002-10.xml.psc'] = dsmts_002_10.model
-    models['dsmts-002-10.xml'] = dsmts_002_10.xml_model    
+    models['dsmts-002-10.xml'] = dsmts_002_10.xml_model
     models['dsmts-003-03.xml.psc'] = dsmts_003_03.model
-    models['dsmts-003-03.xml'] = dsmts_003_03.xml_model    
+    models['dsmts-003-03.xml'] = dsmts_003_03.xml_model
     models['dsmts-003-04.xml.psc'] = dsmts_003_04.model
-    models['dsmts-003-04.xml'] = dsmts_003_04.xml_model    
+    models['dsmts-003-04.xml'] = dsmts_003_04.xml_model
     models['chain5.psc'] = chain5.model
     models['chain50.psc'] = chain50.model
     models['chain500.psc'] = chain500.model
@@ -153,21 +154,21 @@ def InitiateModels(directory):
 
     model_names = list(models)
     dir_models = os.listdir(directory)
-    for mod_name in model_names:        
-        if mod_name not in dir_models: 
+    for mod_name in model_names:
+        if mod_name not in dir_models:
             print("Info: Model {0:s} copied to {1:s}".format(mod_name ,directory) )
-            file_out = open(os.path.join(directory,mod_name),'w')            
-            file_out.write(models[mod_name])  
+            file_out = open(os.path.join(directory,mod_name),'w')
+            file_out.write(models[mod_name])
             file_out.close()
 
-    
+
 output_dir = None
 model_dir = None
 if os.sys.platform != 'win32':
     if not os.path.exists(os.path.join(os.path.expanduser('~'),'Stochpy')):
         os.makedirs(os.path.join(os.path.expanduser('~'),'Stochpy'))
     if not os.path.exists(os.path.join(os.path.expanduser('~'),'Stochpy', 'pscmodels')):
-        os.makedirs(os.path.join(os.path.expanduser('~'),'Stochpy','pscmodels'))        
+        os.makedirs(os.path.join(os.path.expanduser('~'),'Stochpy','pscmodels'))
     if not os.path.exists(os.path.join(os.path.expanduser('~'),'Stochpy', 'temp')):
         os.makedirs(os.path.join(os.path.expanduser('~'),'Stochpy','temp'))
 
@@ -179,15 +180,15 @@ else:
     if not os.path.exists(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy')):
         os.makedirs(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy'))
     if not os.path.exists(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','pscmodels')):
-        os.makedirs(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','pscmodels'))        
+        os.makedirs(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','pscmodels'))
     if not os.path.exists(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','temp')):
         os.makedirs(os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','temp'))
-        
+
     output_dir = os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy',)
     model_dir = os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','pscmodels')
     temp_dir = os.path.join(os.getenv('HOMEDRIVE')+os.path.sep,'Stochpy','temp')
     InitiateModels(model_dir)
- 
+
 from .modules.SBML2PSC import SBML2PSC
 from .modules.StochSim import SSA
 from .modules.StochPyUtils import Utils
@@ -204,7 +205,7 @@ except Exception as er:
 def DeletePreviousOutput(path,type):
     """
     Delete output of earlier simulations
-    
+
     Input:
      - *path* (string)
      - *type* (string)
@@ -213,11 +214,11 @@ def DeletePreviousOutput(path,type):
         if filename.endswith(type):
             filename_path = os.path.join(path,filename)
             os.remove(filename_path)
-            
+
 def DeleteExistingData(path):
     """
     Delete all existing StochKit simulation data
-    
+
     Input:
      - *path* (string)
     """
@@ -225,11 +226,11 @@ def DeleteExistingData(path):
         for maps in os.listdir(path):
             dir2delete = os.path.join(path,maps)
             shutil.rmtree(dir2delete, ignore_errors=True)
-            
-def SaveInteractiveSession(filename='interactiveSession.py',path=output_dir): 
+
+def SaveInteractiveSession(filename='interactiveSession.py',path=output_dir):
     """
     Save the interactive session
-    
+
     Input:
      - *filename*: [default = interactiveSession.py'] (string)
      - *path*: (string)
@@ -238,29 +239,29 @@ def SaveInteractiveSession(filename='interactiveSession.py',path=output_dir):
         print("Error: install 'readline' first")
     elif _IsReadline:
         historyPath = os.path.join(path,filename)
-        if not os.path.exists(path):       
-            os.makedirs(directory)        
-        
+        if not os.path.exists(path):
+            os.makedirs(path)
+
         readline.write_history_file(historyPath)
         file_in = open(historyPath,'r')
         history_list = file_in.readlines()
         n_import_statement = 0
-        for command in history_list:            
+        for command in history_list:
             if 'import' in command and 'stochpy' in command:
-               n_import_statement +=1
-   
+                n_import_statement += 1
+
         n=0
         file_out = open(historyPath,'w')
         for command in history_list:
-            if 'import' in command and 'stochpy' in command:      
-               n+=1
-            if n==n_import_statement:    
+            if 'import' in command and 'stochpy' in command:
+                n+=1
+            if n==n_import_statement:
                 file_out.write(command)
         file_out.close()
         print("Info: Interactive session successfully saved at {0:s}".format(historyPath) )
         print("Info: use 'ipython {0:s} to restart modeling with this interactive session".format(filename) )
 
-    
+
 DeletePreviousOutput(temp_dir,'.dat')
 DeletePreviousOutput(temp_dir,'.xml')
 DeletePreviousOutput(temp_dir,'.txt')

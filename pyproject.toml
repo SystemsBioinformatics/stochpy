@@ -11,7 +11,7 @@ authors = [
     {name = "T.R. Maarleveld", email = "tmd200@users.sourceforge.net"},
 ]
 maintainers = [
-    {name = "Brett Olivier", email = "tmd200@users.sourceforge.net"},
+    {name = "Brett G. Olivier", email = "b.g.olivier@vu.nl"},
 ]
 license = {text = "BSD License"}
 requires-python = ">=3.7"
@@ -24,11 +24,10 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 keywords = ["Bioinformatics", "Computational Systems Biology", "Modeling", "Simulation", "Stochastic Simulation Algorithms", "Stochastic"]
